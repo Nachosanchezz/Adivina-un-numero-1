@@ -51,6 +51,19 @@ def preguntafacilitarnos(minimo, maximo, nrandom):
         return juego()
     else:
         return preguntafacilitarnos()
+def maximointentos(minimo, maximo):
+    print("Oh no!! Has perdido. Alcanzaste el numero de intentos maximo")
+def victoria(facilitarnos):
+    print("Has triunfado en", facilitarnos, "intentos")
+    Nombre = input ("Pon tu nombre: ")
+    cuestion = input(Nombre, ", Quieres echarte otra partida?")
+    print(cuestion)
+    if cuestion == "Si":
+        lista=[]
+        lista.append(Nombre)
+        print(lista)
+    else:
+        print("Muchas gracias por jugar. Espero que te haya gustado")
 
 
 menu()

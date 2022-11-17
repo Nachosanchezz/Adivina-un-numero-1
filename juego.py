@@ -18,20 +18,39 @@ def menu():
             return menu()
 def numerorandom(minimo, maximo):
     import random
-    numerorandom = random.randint(minimo, maximo)
-    return numerorandom
-def juego(minimo, maximo, nrandom):
-    numero = input ("Elige un numero entre " + str(minimo) + " y " + str(maximo) + ": ")
+    nrandom = random.randint(minimo, maximo)
+    return nrandom
+def juego(minimo, maximo, nrandom,):
+    facilitarnos = 0
+    numero = input("Elige un numero entre " + str(minimo) + " y " + str(maximo) + ": ")
+    numero = int(numero)
     print(numero)
     while True:
         if numero == nrandom:
             print("Has conseguido alzarte con la victoria")
+            facilitarnos+=1
         elif numero > nrandom:
-            print("Tu numero es menor")
+            print("El numero es menor")
+            facilitarnos+=1
+            if facilitarnos == 4:
+                preguntafacilitarnos (minimo, maximo, nrandom)
         elif numero < nrandom:
-            print("Tu numero es mayor")
+            print("El numero es mayor")
+            facilitarnos+=1
+            if facilitarnos == 4:
+                preguntafacilitarnos(minimo, maximo, nrandom) 
         else:
             return juego(minimo, maximo, nrandom)
+def preguntafacilitarnos(minimo, maximo, nrandom): 
+    respuesta = input("Quieres ayuda?")
+    print(respuesta)
+    if respuesta == "Si":
+        print("El numero esta entre", minimo + 1)
+    elif respuesta == "No":
+        print("No tiene ayuda")
+        return juego()
+    else:
+        return preguntafacilitarnos()
 
 
-menu ()
+menu()
